@@ -1,5 +1,7 @@
 package com.briz.springbootwebhookjenkins;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,5 +26,10 @@ public String savedata()
 	e.setName("goutam");
 	erepo.save(e);
 	return "data saved to database";
+}
+@RequestMapping("/all")
+public List<Employee> allemployees()
+{
+	return erepo.findAll();
 }
 }
