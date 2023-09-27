@@ -1,8 +1,10 @@
 package com.briz.springbootwebhookjenkins;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,5 +33,10 @@ public String savedata()
 public List<Employee> allemployees()
 {
 	return erepo.findAll();
+}
+@RequestMapping("/by/{id}")
+public Optional<Employee> byid(@PathVariable int id)
+{
+	return erepo.findById(id);
 }
 }
